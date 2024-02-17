@@ -1,0 +1,103 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+}
+
+label {
+    font-weight: bold;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+}
+
+
+
+dl {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+dt {
+    flex-basis: 30%;
+    font-weight: bold;
+}
+
+dd {
+    flex-basis: 70%;
+    margin-bottom: 10px;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+address {
+    font-style: italic;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+footer {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}

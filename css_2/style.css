@@ -1,0 +1,25 @@
+.container{
+    padding: 5px 2px 1px 15px;
+    border-style:solid double;
+    /* solid dashed dotted double */
+    border-width: 3px 10px ;/* 3 in top and bottom and 10 in left and right*/
+    /*border-width: 25px 10px 4px 35px; *//* 25 to top and 10 in right and 4 bottom and 35 left*/
+}
+h1{
+    color: red;
+}
+footer{
+box-shadow: 
+  5px 5px 10px rgba(0, 0, 0, 0.3),  /* Shadow 1: A subtle drop shadow */
+  -5px -5px 10px rgba(255, 255, 255, 0.9), /* Shadow 2: A subtle inner shadow */
+  0px 0px 15px rgba(255, 0, 0, 0.7) inset; /* Shadow 3: A red inner glow */
+    border: solid 5px #eee;
+    margin-top: 10%;
+    padding: 5px 45%;
+    bottom: 0;
+}
+
+header{
+    border: dotted 1px #eee;
+    padding: 0px 0px 0px 40%;
+}
