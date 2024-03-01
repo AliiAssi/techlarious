@@ -1,34 +1,33 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Joi = require('joi');
+require('dotenv').config();
 
-// Building the user schema
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: [true, "First Name is required"],
+        required: [true, 'First name is required'],
         trim: true,
         maxLength: 50,
-        minLength: 3
     },
     lastName: {
         type: String,
-        required: [true, "Last Name is required"],
+        required: [true, 'Last name is required'],
         trim: true,
         maxLength: 50,
         minLength: 3
     },
     userName: {
         type: String,
-        required: [true, "User Name is required"],
+        required: [true, 'Username is required'],
         unique: true,
         trim: true,
         minLength: 3
     },
     email: {
         type: String,
-        required: [true, "Email is required"],
+        required: [true, 'Email is required'],
         unique: true,
         trim: true,
         lowercase: true,
@@ -36,94 +35,83 @@ const userSchema = new Schema({
     },
     password: {
         type: String,
-        required: [true, "Password is required"],
+        required: [true, 'Password is required'],
         trim: true,
-        lowercase: true
     },
-    passwordChangeAt:{
+    passwordChangeAt: {
         type: Date
-    }
-    ,
+    },
     phoneNumber: {
         type: String,
         trim: true,
-        unique : true
+        unique: true
     },
     profilePicture: {
         type: String,
         trim: true,
-        default: ''
+        default: 'https://cdn.pixabay.com/photo/2018/03/27/21/43/startup-3267505_640.jpg'
     },
-    following : [{
-        type : Schema.Types.ObjectId,
-        ref : " User"
+    following: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }],
-    followers : [{
-        type : Schema.Types.ObjectId,
-        ref : " User"
+    followers: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }],
-    friends : [{ 
-        type : Schema.Types.ObjectId,
-         ref : " User"
+    friends: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }],
-    followedPages : [{
-        type : Schema.Types.ObjectId,
-        ref : "Page"
+    followedPages: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Page'
     }]
+}, {
+    timestamps: true
+});
 
-},
-{
-    timestamps : true   
-}
-);
-
-// genrate auth token
-UserSchema.methods.generateAuthToken = function(){
-    return jwt.sign(
-        { id: this._id,
-        }, process.env.SECRETKEY, 
-        { expiresIn: '30d' }
-    );
-}
-
-// Define pre-save middleware to hash the password before saving
+// Hash password before saving
 userSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) return next();
+
     try {
-        // Check if the password field has been modified
-        if (!this.isModified('password')) {
-            return next(); // Exit early if the password is not modified
-        }
-        
-        // Hash the password with a salt factor of 12
-        this.password = await bcrypt.hash(this.password, 12);
-        
-        next(); // Proceed to the next middleware or save operation
-    } catch (err) {
-        next(err); // Pass any errors to the next middleware or error handler
+        this.password = await bcrypt.hash(this.password, 10);
+        next();
+    } catch (error) {
+        next(error);
     }
 });
 
-function validateRegisterUser(obj) {
+
+// Generate authentication token
+userSchema.methods.generateAuthToken = function () {
+    return jwt.sign({ _id: this._id }, process.env.SECRETKEY, { expiresIn: '30d' });
+};
+
+// Validation functions
+function validateRegisterUser(user) {
     const schema = Joi.object({
         firstName: Joi.string().trim().min(3).max(50).required(),
         lastName: Joi.string().trim().min(3).max(50).required(),
         userName: Joi.string().trim().min(3).max(50).required(),
-        email: Joi.string().trim().min(2).max(100).required().email(),
-        password: Joi.string().trim().min(3).required(), // Updated password constraint
+        email: Joi.string().trim().email().required(),
+        password: Joi.string().trim().min(8).required(),
+        phoneNumber: Joi.string().trim().pattern(/^\+961\d{8}$/).required()
     });
-    return schema.validate(obj);
+    return schema.validate(user);
 }
 
-function validateLoginUser(obj) {
+function validateLoginUser(user) {
     const schema = Joi.object({
-        email: Joi.string().trim().min(2).max(100).required().email(),
-        password: Joi.string().trim().min(8).required(), // Updated password constraint
+        email: Joi.string().trim().email().required(),
+        password: Joi.string().trim().required()
     });
-    return schema.validate(obj); 
+    return schema.validate(user);
 }
-
 
 const User = mongoose.model('User', userSchema);
+
 module.exports = {
     User,
     validateRegisterUser,

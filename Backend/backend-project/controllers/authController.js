@@ -6,10 +6,6 @@ const {
 const bcrypt = require("bcryptjs");
 const validator = require("validator");
 
-const validateLebanesePhoneNumber = function (value) {
-  const phoneNumberRegex = /^\+961\d{8}$/; // Regex for '+961' followed by 8 digits
-  return phoneNumberRegex.test(value);
-};
 
 exports.registerUser = async (req, res) => {
   try {
@@ -18,15 +14,8 @@ exports.registerUser = async (req, res) => {
     if (error)
       return res.status(400).json({ message: error.details[0].message });
 
-    if (
-      validator.isEmpty(req.body.phoneNumber) ||
-      !validator.isNumeric(req.body["phoneNumber"]) ||
-      !validateLebanesePhoneNumber(req.body["phoneNumber"])
-    ) {
-      return res.status(404).send({ message: "phone number must be valid" });
-    }
     // Check if user already exists
-    const existingUser = await User.findOne({ email: req.body.email });
+    const existingUser = await User.findOne({ email: req.body['email'] });
 
     if (existingUser) {
       return res.status(400).json({
@@ -37,8 +26,9 @@ exports.registerUser = async (req, res) => {
     // Create new user instance
     const newUser = new User({
       userName: req.body.userName,
+      firstName: req.body.firstName,
       lastName: req.body.lastName,
-      lastName: req.body.lastName,
+      phoneNumber:  req.body.phoneNumber,
       email: req.body.email,
       password: req.body.password,
       passwordChangeAt: Date.now()
@@ -56,31 +46,41 @@ exports.registerUser = async (req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-  const { error } = validateLoginUser(req.body);
-  if (error) {
-    return res.status(400).json({ message: error.details[0].message });
-  }
-  const user = await User.findOne({ email: req.body.email });
-  if (!user) {
-    return res.status(401).json({ message: "Incorrect " });
-  }
+    try {
+        // Validate request body
+        const { error } = validateLoginUser(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
 
-  const isPasswordConfirmed = await bcrypt.compare(
-    req.body.password, user.password
-  );
-  if (!isPasswordConfirmed) {
-    return res.status(401).json({ message: "Incorrect credentials" });
-  }
-  // Generate JWT token
-  const token = user.generateAuthToken();
+        // Find user by email
+        const user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(401).json({ message: "Incorrect email or password" });
+        }
 
-  return res.status(200).json({
-    _id: user._id,
-    userName: user.userName,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    profilePhoto: user.profilePhoto,
-    phoneNumber: user.phoneNumber,
-    token,
-  });
+        // Compare passwords
+        const isPasswordValid = await bcrypt.compare(req.body.password, user.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ message: "Incorrect email or passwordd" });
+        }
+
+        // Generate JWT token
+        const token = user.generateAuthToken();
+
+        // Return user data and token
+        return res.status(200).json({
+            _id: user._id,
+            userName: user.userName,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            profilePhoto: user.profilePhoto,
+            phoneNumber: user.phoneNumber,
+            token,
+        });
+    } catch (error) {
+        // Handle server errors
+        console.error("Error in loginUser:", error);
+        return res.status(500).json({ message: "Internal server error" });
+    }
 };

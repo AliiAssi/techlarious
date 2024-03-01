@@ -19,7 +19,7 @@ const postSchema = new Schema({
     },
     picture: {
         type: String,
-        default: ''
+        default: 'https://th.bing.com/th/id/OIP.Y5AKy_ThdGknRFLuqJmdtwHaEo?rs=1&pid=ImgDetMain'
     },
     video: {
         type: String,
@@ -34,7 +34,7 @@ const postSchema = new Schema({
         ref: 'User'
     }],
     comments: [{
-        text: String,
+        type: Schema.Types.ObjectId,
         ref: 'Comment'
     }]
 }, {

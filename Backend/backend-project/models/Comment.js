@@ -24,5 +24,14 @@ const commentSchema = new Schema(
         timestamps: true
     }
 );
-
-module.exports = mongoose.model('Comment', commentSchema);
+function validateCommentPayLoad(obj) {
+    const schema = Joi.object({
+        content: Joi.string().trim().min(1).max(255).required(),
+    });
+    return schema.validate(obj);
+}
+const Comment = mongoose.model('Comment', commentSchema);
+module.exports = {
+    Comment,
+    validateCommentPayLoad
+};

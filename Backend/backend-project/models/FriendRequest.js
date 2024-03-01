@@ -22,4 +22,8 @@ const friendRequestSchema = new Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('FriendRequest', friendRequestSchema);
+
+const FriendRequest = mongoose.model('Comment', friendRequestSchema);
+module.exports = {
+    FriendRequest
+};
