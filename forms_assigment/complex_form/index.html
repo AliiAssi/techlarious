@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <section class="records-select">
+            <div class="row">
+                <div class="col">
+                    Record :
+                </div>
+                <div class="col">
+                    <select name="records" id="records">
+                        <option value="1" disabled>Select a region</option>
+                        <option value="2">Option 1</option>
+                        <option value="3">Option 2</option>
+                    </select>
+
+                </div>
+            </div>
+        </section>
+        <section class="indicates">
+            <div class="row">
+                <div class="col">
+                    <p>*Indicates a required field</p>
+                </div>
+                <div class="col">
+                    <div class="button-group">
+                        <button class="ok-button">OK</button>
+                        <button class="delete-button">Delete</button>
+                        <button class="cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-inputs">
+            <div class="row">
+                <div class="col">
+                    <label for="customer">Customer:</label>
+                    <input type="text" id="customer" style="width: 200px;">
+                    <br>
+                    <label for="employee">Employee:</label>
+                    <input type="text" id="employee" style="width: 200px;">
+                    <br>
+                    <label for="order-date">Order Date:</label>
+                    <input type="date" id="order-date">
+                    <br>
+                    <label for="required-date">Required Date:</label>
+                    <input type="date" id="required-date">
+                    <br>
+                    <label for="shipped-date">Shipped Date:</label>
+                    <input type="date" id="shipped-date">
+                </div>
+                <div class="col">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" style="width: 300px;">
+                    <br>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" style="width: 300px;">
+                    <br>
+                    <label for="region">Region:</label>
+                    <input type="text" id="region" style="width: 300px;">
+                    <br>
+                    <label for="postal-code">Postal Code:</label>
+                    <input type="text" id="postal-code" style="width: 300px;">
+                    <br>
+                    <label for="ship-country">Ship Country:</label>
+                    <input type="text" id="ship-country" style="width: 300px;">
+                </div>
+            </div>
+        </section>
+
+        <section class="table-info">
+            <div class="header">
+                <input type="text" class="search" placeholder="Search" />
+                <span class="search-icon">🔍</span>
+            </div>
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Discount</th>
+                        <th>Product Category Name</th>
+                        <th>Product Supplier Company Name</th>
+                        <th>Extended Price</th>
+                    </tr>
+                    <tr>
+                        <td>p1</td>
+                        <td>$25.00</td>
+                        <td>20</td>
+                        <td>25.00%</td>
+                        <td>Condiments</td>
+                        <td>c1</td>
+                        <td>$375.00</td>
+                    </tr>
+                    <tr class="divider">
+                        <td colspan="2">avg: 18.5</td>
+                        <td colspan="2">sum: 50</td>
+                        <td colspan="2">avg: 25%</td>
+                        <td>sum: 792.75</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section class="final">
+            <div class="row">
+                <div class="col">
+                    <label for="ship-name">Ship Name:</label>
+                    <input type="text"  style="width: 300px;">
+                    <label for="ship-via">Ship Via:</label>
+                    <select name="package" id="records">
+                        <option value="1" disabled>Select a package</option>
+                        <option value="2">Option 1</option>
+                        <option value="3">Option 2</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <b>subtotal : </b> $752 <br> <br>
+                    <b>freight  : </b><input type="text" name=""  readonly value="$38.28" style="width: 50px;"> <br> <br>
+                    <b>total    : </b> $831.03 <br>
+                </div>
+            </div>
+        </section>
+        <section class="indicates">
+            <div class="row">
+                <div class="col">
+                    <p>*Indicates a required field</p>
+                </div>
+                <div class="col">
+                    <div class="button-group">
+                        <button class="ok-button">OK</button>
+                        <button class="delete-button">Delete</button>
+                        <button class="cancel-button">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

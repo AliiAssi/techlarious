@@ -1,0 +1,51 @@
+/* Banner.css */
+.banner-container {
+    position: relative;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 400px;
+  }
+  
+  .banner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff; /* Adjust text color to your preference */
+  }
+  
+  .banner-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .banner-content p {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #ccc; /* Light gray color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for added effect */
+  }
+  
+  
+  .create-blog-button {
+    padding: 10px 30px;
+    font-size: 1.1em;
+    border: none;
+    background-color: purple;
+    color:white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-blog-button:hover {
+    background-color: #4c0547; /* Adjust button hover color to your preference */
+  }
+  
+  @media (max-width: 520px) {
+    .banner-image{
+      height : 510px;
+    }
+  }

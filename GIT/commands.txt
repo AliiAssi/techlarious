@@ -1,0 +1,5 @@
+git init
+git add -A
+git commit -m "initial commit/design-assigments"
+git remote add origin https://github.com/AliiAssi/Techlarious_bootcamp-/
+git push -u origin master

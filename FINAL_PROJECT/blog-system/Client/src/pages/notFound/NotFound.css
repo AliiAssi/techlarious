@@ -1,0 +1,56 @@
+/* NotFound.css */
+
+/* Style for the Not Found container */
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Style for the Not Found title */
+  .not-found-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #555;
+  }
+  
+  /* Style for the Not Found message */
+  .not-found-message {
+    font-size: 18px;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  /* Style for the Not Found image */
+  .not-found-image {
+    max-width: 100%;
+    margin-top: 20px;
+    height: 495px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 990px) {
+    .not-found-image {
+        height: 900px;
+      }
+}
+
+@media (max-width: 520px) {
+    .home-container {
+        padding: 0 15px;
+    }
+
+    .home-latest-post {
+        margin-left: 15px;
+    }
+
+    .home-title {
+        font-size: 30px;
+    }
+}
+
+  

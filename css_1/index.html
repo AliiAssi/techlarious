@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>assignment</title>
+    <style>
+        .list{
+            list-style: url("assets/y.svg") outside;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>css lectures notes</h1>
+        <p>
+            <ul>
+                <li>
+                    The term "cascading" in CSS refers to the order in which styles are applied
+                </li>
+                <li>
+                    The order in which styles are applied is the order in which they are defined in the CSS file
+                </li>
+                <li style="color: tomato;"> <!-- inline css -->
+                    Styles can be inherited from parent elements or overridden by more specific selectors, often following the rules of specificity
+                </li>
+            </ul>
+
+        </p>
+        <p>
+            <ul class="list">
+                <li>
+                    testing something here 
+                </li>
+                <li>
+                    <i id="unique">another list item</i>
+                </li>
+                <li>
+                    li
+                </li>
+            </ul>
+        </p>
+        <h4 class="container">hello1</h4> <!--some properties will overitten by the container propreties action-->
+        <h2>hello2</h2>
+        <h3>hello3</h3>
+    </div>
+</body>
+</html>

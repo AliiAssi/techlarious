@@ -1,0 +1,226 @@
+.header {
+    width: 100%;
+    height: 73px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    position: relative;
+    z-index: 99;
+    box-shadow: 0 2px 4px rgba(114, 108, 108, 0.5), 0 2px 4px rgba(114, 108, 108, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Header Left */
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--white-color);
+    text-decoration: underline;
+}
+
+.header-menu {
+    display: none;
+}
+
+.header-menu i {
+    font-size: 40px;
+    color: var(--white-color);
+    cursor: pointer;
+}
+
+/* Navbar */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    margin: 0 12px;
+    cursor: pointer;
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--white-color);
+}
+
+.nav-link:hover {
+    color: var(--main-color);
+}
+
+.nav-link i {
+    margin-right: 3px;
+    font-size: 24px;
+}
+
+/* Header Right */
+.header-right-link {
+    margin-left: 10px;
+    font-size: 21px;
+    font-weight: 500;
+    background-color: var(--white-color);
+    color: var(--blue-color);
+    border-radius: 10px;
+    border: 2px solid #8e44ad; /* Added border style and set border color */
+    padding: 6px 9px;
+  }
+  
+
+.header-right-link:hover {
+    background-color: var(--main-color);
+}
+
+.header-right-link i {
+    margin-right: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 990px) {
+    .header-left {
+        flex-direction: row-reverse;
+    }
+
+    .header-menu {
+        display: block;
+        margin-right: 20px;
+    }
+
+    .navbar {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background: linear-gradient(45deg, #8e44ad, #3498db);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: all .7s ease-in-out;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+    }
+
+    .nav-link {
+        margin: 0;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 520px) {
+    .header {
+        padding: 0 10px;
+    }
+
+    .header-logo {
+        font-size: 19px;
+    }
+
+    .header-right-link {
+        font-size: 17px;
+        padding: 5px 7px;
+    }
+
+    .header-menu {
+        margin-right: 10px;
+    }
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background: -webkit-linear-gradient(right, #00a6ff, #dc72e8);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .username {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: large;
+  }
+  
+  .username span {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .chevron {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    transition: transform 0.3s ease;
+  }
+  
+  .chevron.down {
+    border-top: 5px solid #333;
+  }
+  
+  .chevron.up {
+    border-bottom: 5px solid #333;
+  }
+  
+  .dropdown-div {
+    position: absolute;
+    top: 100%; /* Position the dropdown below the menu */
+    left: 0;
+    margin-top: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .profile-option,
+  .logout-option {
+    padding: 10px;
+    transition: background-color 0.3s ease;
+    background: -webkit-linear-gradient(right, #00a6ff, #dc72e8);
+    width: 100px;
+  }
+  
+  .profile-option:hover {
+    background: -webkit-linear-gradient(right, #060b84, #793c96);
+  }
+  .c{
+    color: wheat;
+  }
+  .c1{
+    color: white;
+  }
+  .logout-option{
+    background: -webkit-linear-gradient(right, #ff4400, #4b1007);
+  }
+  .logout-option:hover{
+    background: -webkit-linear-gradient(right, #4b1007, #000000);
+  }
+  .profile-picture {
+    margin-left: 10px;
+  }
+  
+  .profile-picture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 5px;
+    object-fit: cover;
+  }
+
+ 

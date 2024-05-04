@@ -1,0 +1,193 @@
+.post-details {
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.post-details-image-wrapper {
+    height: 400px;
+    margin-bottom: 45px;
+}
+
+.post-details-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; /* Add a border-radius for rounded corners */
+    -shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    margin-bottom: 15px; /* Add some spacing below the image */
+}
+
+img.framed {
+  box-shadow:
+    -50px -50px 0 -40px rgb(187, 20, 170),
+    50px 50px 0 -40px rgb(0, 132, 255);
+}
+.update-post-image-form button {
+   margin-left: 50px;
+   background: linear-gradient(45deg, #8e44ad, #3498db);
+   color: var(--main-color);
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 17px;
+   padding: 7px 5px;
+   width: 45%;
+   border: 1px solid purple;
+   margin-bottom: 5%;
+}
+
+.update-post-image {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--blue-color);
+    cursor: pointer;
+}
+
+.update-post-image i {
+    font-size: 21px;
+    margin-right: 3px;
+}
+
+.post-details-title {
+    text-align: center;
+    font-size: 40px;
+    color: var(--primary-color);
+    text-transform: capitalize;
+    margin: 10px 0;
+    margin-top: 15%;
+}
+
+.post-details-user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.post-details-user-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-details-user {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.post-details-user strong {
+    font-size: 21px;
+    color: var(--dark-color);
+}
+
+.post-details-user span {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--gray-color);
+}
+
+.post-details-description {
+    font-size: 21px;
+    line-height: 1.8;
+    color: var(--primary-color);
+}
+
+.post-details-icon-wrapper {
+    margin: 15px 0;
+    font-size: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--blue-color);
+}
+
+.post-details-icon-wrapper i {
+    cursor: pointer;
+}
+.update-post-image-form{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-bottom: 2%;
+}
+
+/* Media Query */
+@media (max-width: 820px) {
+    .post-details {
+        width: 100%;
+    }
+    .post-details-title {
+        margin-top: 15%;
+    }
+}
+
+@media (max-width: 520px) {
+    .post-details {
+        padding: 15px;
+    }
+    .post-details-title {
+        margin-top: 21%;
+    }
+
+    .post-details-image {
+        object-fit: cover;
+    }
+}
+/* styles.css */
+
+/* Container for the likes information */
+.likes-container {
+    display: flex;
+    align-items: center;
+    color: #333; /* Set the text color to a dark color for readability */
+    font-size: 14px; /* Adjust the font size as needed */
+  }
+  
+  /* Style for the likes count */
+  .likes-count {
+    font-weight: bold;
+    margin-right: 5px; /* Add some spacing between the count and "likes" */
+  }
+  
+  /* Style for the "likes" text */
+  .likes-text {
+    color: #777; /* Set a lighter color for the "likes" text */
+  }
+  
+  /* styles.css */
+
+/* Style for the post details user container */
+.post-details-user {
+    display: flex;
+    align-items: center;
+    
+    margin-bottom: 10px; /* Add some spacing below the user details */
+  }
+  
+  /* Style for the username link */
+  .post-details-user strong a {
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    color: white;
+    padding: 2px 7px;
+    text-decoration: none;
+    border-radius: 7%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.50);
+    transition: color 0.3s ease; /* Add a smooth color transition on hover */
+    
+  }
+  
+  /* Hover effect for the username link */
+  .post-details-user strong a:hover {
+    color: #f5f8f9; /* Change the color on hover */
+    background: linear-gradient(45deg, #3498db, #8e44ad);
+    box-shadow: 0px 0px 10px rgba(59, 77, 213, 0.5);
+
+  }
+  
+  /* Style for the timestamp */
+  .post-details-user span {
+    margin-top: 6px;
+    margin-left: 10px; /* Add some spacing to the left of the timestamp */
+    color: #5c5959; /* Set a color for the timestamp */
+  }
+  

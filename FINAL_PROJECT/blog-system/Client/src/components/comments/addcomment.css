@@ -1,0 +1,39 @@
+
+
+.add-comment-input {
+    width: 90%;
+    font-size: 21px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.add-comment-btn {
+    background: linear-gradient(45deg, #8e44ad, #3498db);
+    color: var(--white-color);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 14px 10px;
+    margin-left: 7px;
+    width: 9%;
+    border-radius: 20px;
+    border: none;
+}
+.add-comment-btn:hover{
+    background: linear-gradient(45deg, #783094, #105887);
+}
+
+@media (max-width: 990px) {
+    .add-comment-input {
+        width: 90%;
+    }
+    
+
+}
+
+@media (max-width: 520px) {
+    .add-comment-input {
+        width: 89%;
+    }
+}
